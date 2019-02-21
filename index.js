@@ -30,7 +30,7 @@ function init() {
         if (newInd < 0) newInd = allLiElems.length - 1;
         if (newInd >= allLiElems.length) newInd = 0;
 
-        // Highlight the new tree item
+        // Highlight the new tree item ...
         highlightAtInd(newInd);
         evt.preventDefault();
     });
