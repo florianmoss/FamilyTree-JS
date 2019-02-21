@@ -210,4 +210,6 @@ function init() {
     highlightAtInd(0);
 }
 
+var a =1;
+
 // End
