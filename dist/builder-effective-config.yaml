@@ -1,0 +1,7 @@
+directories:
+  output: dist
+  buildResources: build
+appId: florian.moss@gmail.com
+mac:
+  category: com.example.app
+electronVersion: 4.0.5
