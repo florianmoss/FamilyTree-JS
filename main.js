@@ -15,6 +15,11 @@ function init() {
         // Set the picture and name
         var pic = document.getElementById('pos');
         pic.src = "assets/" + allLiElems[liInd].innerHTML + ".jpg";
+
+        // if no picture with the set name is found, set a defualt
+        pic.onerror = function (e) {
+            pic.src = "assets/default.jpg";
+        };
         var card = document.getElementById('card');
         card.innerHTML = allLiElems[liInd].innerHTML;
         // Push the action taken to array
@@ -30,7 +35,7 @@ function init() {
         if (newInd < 0) newInd = allLiElems.length - 1;
         if (newInd >= allLiElems.length) newInd = 0;
 
-        // Highlight the new tree item
+        // Highlight the new tree item ...
         highlightAtInd(newInd);
         evt.preventDefault();
     });
@@ -169,6 +174,52 @@ function init() {
         assignButtons();
     });
 
+    let changeBtn = document.getElementById('changeName');
+    changeBtn.addEventListener('click', changeName => {
+        var textInput = document.getElementById("nameInput").value;
+        if (textInput.length > 1) {
+            var oldName = allLiElems[liInd].innerHTML;
+            allLiElems[liInd].innerHTML = textInput;
+            assignButtons();
+            listOfActions.push(oldName + " changed name to " + textInput);
+            document.getElementById("nameInput").value = "";
+            highlightAtInd(liInd);
+
+        } else {
+            alert('The name you have entered appears to be a bit short. Please enter a name that is at least 2 characters long.');
+            listOfActions.push("Error: Trying to change a name while new name is too short.");
+        }
+    });
+
+    let newTreeBtn = document.getElementById('newTree');
+    newTreeBtn.addEventListener('click', startNew => {
+        newTreeBtn.style.visibility = 'hidden';
+        document.getElementById('rootInput').style.display = 'block';
+        document.getElementById('newRoot').style.display = 'block';
+    });
+
+    let newRootBtn = document.getElementById('newRoot');
+    newRootBtn.addEventListener('click', setRoot => {
+        var textInput = document.getElementById("rootInput").value;
+
+        document.getElementById('rootInput').style.display = 'none';
+        document.getElementById('newRoot').style.display = 'none';
+        document.getElementById('g1').style.display = 'block';
+        document.getElementById('pictureCard').style.display = 'block';
+        document.getElementById('functionality').style.display = 'block';
+
+        allLiElems[0].innerHTML = textInput;
+        assignButtons();
+        listOfActions.push("A family root was set: " + textInput);
+
+        highlightAtInd(0);
+    });
+
+    let reloadBtn = document.getElementById('reload');
+    reloadBtn.addEventListener('click', function () {
+        location.reload();
+    });
+
     // The session button 
     let question = document.getElementById('fixedbutton');
     question.addEventListener('click', logaction);
@@ -207,7 +258,5 @@ function init() {
     // Finish the initialisation by highlighting the first element
     // And assigning the onClick functions to the buttons
     assignButtons();
-    highlightAtInd(0);
 }
-
 // End

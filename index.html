@@ -5,15 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Family Tree</title>
-    <script src="index.js"></script>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <script src="main.js"></script>
+    <link rel=" stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link href="icons/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="main.css">
     <!-- The jQuery is only used for the modal -->
     <script src="icons/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
 
 </head>
 
@@ -56,43 +55,19 @@
 
     <div class="d-flex justify-content-center">
         <div class="tree">
-            <ul id='g1'>
+            <button type="button" class="btn btn-outline-success btn-block btn-lg" id="newTree">Start a new Family
+                Tree</button>
+
+            <input id="rootInput" class="form-control form-control-l" type="text" placeholder="Name of family root here"
+                style="display:none;">
+            <div class="whitespace"></div>
+            <button type="button" class="btn btn-outline-primary btn-block btn-lg" id="newRoot"
+                style="display:none;">Enter</button>
+
+            <ul id='g1' style="display:none;">
                 <li>
                     <a href="#">Parent</a>
-                    <a href="#">Parent</a>
-                    <ul>
-                        <li>
-                            <a href="#">Child</a>
-                            <a href="#">Child</a>
-                            <ul>
-                                <li><a href="#">Grand Child</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Child</a>
-                            <a href="#">Child</a>
-                            <ul>
-                                <li><a href="#">Grand Child</a></li>
-                                <li><a href="#">Grand Child</a></li>
-                                <li><a href="#">Grand Child</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Child</a>
-                            <a href="#">Child</a>
-                            <ul>
-                                <li>
-                                    <a href="#">Grand Child</a>
-                                </li>
-                                <li>
-                                    <a href="#">Grand Child</a>
-                                </li>
-                                <li>
-                                    <a href="#">Grand Child</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -101,7 +76,7 @@
             <div class="col-sm">
             </div>
 
-            <div class="col-sm">
+            <div class="col-sm" id='pictureCard' style="display:none;">
                 <div class="card" style="width: 18rem;">
                     <img id="pos" class="card-img-top" src="assets/Parent.jpg" alt="Card image cap" width="100px">
                     <div class="card-body">
@@ -117,7 +92,7 @@
 
     <div class="whitespace"></div>
 
-    <div class="container">
+    <div class="container" id='functionality' style="display:none;">
         <div class="row">
             <div class="col-sm">
                 <button type="button" class="btn btn-outline-success btn-block" id="addSpouse">Add spouse</button>
@@ -126,9 +101,12 @@
             </div>
             <div class="col-sm">
                 <input id="nameInput" class="form-control form-control-l" type="text" placeholder="Enter the name here">
+                <br>
+                <button type="button" class="btn btn-outline-primary btn-block" id="changeName">Change Name</button>
             </div>
             <div class="col-sm">
                 <button type="button" class="btn btn-outline-danger btn-block" id="rem">Remove</button>
+                <button type="button" class="btn btn-outline-danger btn-block" id="reload">Reset</button>
             </div>
         </div>
     </div>
