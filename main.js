@@ -185,6 +185,14 @@ function init() {
         }
     });
 
+    let newTreeBtn = document.getElementById('newTree');
+    newTreeBtn.addEventListener('click', startNew => {
+        newTreeBtn.style.visibility = 'hidden';
+        // document.getElementById('g1').style.display = 'block';
+        // document.getElementById('pictureCard').style.display = 'block';
+        // document.getElementById('functionality').style.display = 'block';
+    });
+
     // The session button 
     let question = document.getElementById('fixedbutton');
     question.addEventListener('click', logaction);
