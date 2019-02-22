@@ -11,14 +11,8 @@
     <link href="icons/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="main.css">
     <!-- The jQuery is only used for the modal -->
-    <script>window.$ = window.jQuery = require('jquery');</script>
     <script src="icons/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script>
-
-    </script>
-
-
 
 </head>
 
@@ -63,6 +57,13 @@
         <div class="tree">
             <button type="button" class="btn btn-outline-success btn-block btn-lg" id="newTree">Start a new Family
                 Tree</button>
+
+            <input id="rootInput" class="form-control form-control-l" type="text" placeholder="Name of family root here"
+                style="display:none;">
+            <div class="whitespace"></div>
+            <button type="button" class="btn btn-outline-primary btn-block btn-lg" id="newRoot"
+                style="display:none;">Enter</button>
+
             <ul id='g1' style="display:none;">
                 <li>
                     <a href="#">Parent</a>
@@ -105,6 +106,7 @@
             </div>
             <div class="col-sm">
                 <button type="button" class="btn btn-outline-danger btn-block" id="rem">Remove</button>
+                <button type="button" class="btn btn-outline-danger btn-block" id="reload">Reset</button>
             </div>
         </div>
     </div>
@@ -134,7 +136,7 @@
 </body>
 
 <script>
-        document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", init);
 </script>
 
 </html>
